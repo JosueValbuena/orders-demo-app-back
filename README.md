@@ -3,6 +3,8 @@
 
 El proyecto aplica una arquitectura modular por capas, con separación clara entre controladores, servicios, repositorios y DTOs, lo que facilita su mantenimiento, testeo y escalabilidad.
 
+**Demo video** [Link](https://www.youtube.com/watch?v=3eFguLulkfA)
+
 ## Características principales
 
 CRUD completo de órdenes (Order).
