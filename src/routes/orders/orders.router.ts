@@ -1,9 +1,7 @@
-import { OrderDTO } from "@/dto/orders/oder.dto.js";
-import { OrderModel } from "@/models/orders.model.js";
-import { ordersService } from "@/services/orders.js";
+import { OrderDTO } from "@/dto/orders/oder.dto";
+import { ordersService } from "@/services/orders";
 import { Router } from "express";
 import mongoose from "mongoose";
-import { validate } from "uuid";
 
 const ordersRouter = Router();
 
@@ -57,8 +55,7 @@ ordersRouter.get('/:id', async (req, res) => {
                 status: 'fail',
                 error: 'ID is required'
             });
-
-        if (validate(id)) return res
+        if (!mongoose.Types.ObjectId.isValid(id)) return res
             .status(400)
             .json({
                 code: 400,
@@ -120,7 +117,7 @@ ordersRouter.post('/', async (req, res) => {
 });
 
 ordersRouter.put('/:id', async (req, res) => {
-    const id = req.params.id;
+    const id = req.params.id.trim();
 
     if (!id) return res
         .status(400)
@@ -129,15 +126,14 @@ ordersRouter.put('/:id', async (req, res) => {
             status: 'fail',
             error: 'ID is required'
         });
-
-    if (!mongoose.Types.ObjectId.isValid(id)) return res
+        if (!mongoose.Types.ObjectId.isValid(id)) return res
         .status(400)
         .json({
             code: 400,
             status: 'fail',
             error: 'Not valid ID'
         });
-
+        
     const body = req.body;
     const [error, data] = OrderDTO.create(body);
     if (error || !data) return res
@@ -191,7 +187,7 @@ ordersRouter.delete('/:id', async (req, res) => {
                 error: 'ID is required'
             });
 
-        if (validate(id)) return res
+        if (!mongoose.Types.ObjectId.isValid(id)) return res
             .status(400)
             .json({
                 code: 400,

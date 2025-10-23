@@ -1,5 +1,5 @@
-import type { OrderInterface, StatusType } from "@/shared/types/index.js";
-import { orderKeys } from "@/shared/utils/index.js";
+import type { OrderInterface, StatusType } from "@/shared/types/index";
+import { orderKeys } from "@/shared/utils/index";
 
 export class OrderDTO {
     private constructor(

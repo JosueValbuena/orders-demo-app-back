@@ -1,6 +1,6 @@
-import { OrderDTO } from '@/dto/orders/oder.dto.js';
-import { OrderModel } from '@/models/orders.model.js';
-import type { OrderInterface } from '@/shared/types/index.js';
+import { OrderDTO } from '@/dto/orders/oder.dto';
+import { OrderModel } from '@/models/orders.model';
+import type { OrderInterface } from '@/shared/types/index';
 import type { UUIDTypes } from 'uuid';
 
 export const ordersDatasouce = {
@@ -33,7 +33,6 @@ export const ordersDatasouce = {
     },
 
     update: async (id: UUIDTypes, data: Partial<OrderInterface>): Promise<OrderInterface | null> => {
-        console.log({ data })
         const updatedOrder = await OrderModel.findByIdAndUpdate(id, data, {
             new: true
         });

@@ -1,5 +1,5 @@
-import { ordersDatasouce } from '@/datasource/mongo/index.js';
-import type { OrderInterface } from '@/shared/types/index.js';
+import { ordersDatasouce } from '@/datasource/mongo/index';
+import type { OrderInterface } from '@/shared/types/index';
 import type { UUIDTypes } from 'uuid';
 
 export const ordersRepository = {

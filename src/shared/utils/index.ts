@@ -1,1 +1,1 @@
-export const orderKeys: string[] = ['customer_name', 'item', 'quantity', 'status', 'created_at']; 
+export const orderKeys: string[] = ['customer_name', 'item', 'quantity', 'status', 'created_at', 'id']; 

@@ -1,13 +1,10 @@
 import express, { type Request, type Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import router from '@/routes/index.js';
-import connectDB from '@/config/mongodb/mongo.config.js';
-dotenv.config({ path: '.envdev.env' }); 
+import router from '@/routes/index';
+import connectDB from '@/config/mongodb/mongo.config';
+dotenv.config({ path: '.envdev.env' });
 const app = express();
-connectDB();
-
-const PORT = process.env.PORT || 3001;
 
 const corsOptions = {
     origin: [
@@ -16,6 +13,10 @@ const corsOptions = {
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
     optionsSuccessStatus: 204
+};
+
+if (process.env.NODE_ENV !== 'test') {
+    connectDB();
 };
 
 app.use(cors(corsOptions));
@@ -27,6 +28,4 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use('/', router);
 
-app.listen(PORT, () => {
-    console.log(`Server on at port ${PORT}`);
-});
+export default app;

@@ -1,2 +1,4 @@
 node_modules
 .envdev.env
+coverage
+test

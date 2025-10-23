@@ -1,6 +1,6 @@
-import { OrderDTO } from "@/dto/orders/oder.dto.js";
-import { ordersRepository } from "@/repository/orders/index.js";
-import type { OrderInterface, OrdersServiceGetResponse } from "@/shared/types/index.js";
+import { OrderDTO } from "@/dto/orders/oder.dto";
+import { ordersRepository } from "@/repository/orders/index";
+import type { OrderInterface, OrdersServiceGetResponse } from "@/shared/types/index";
 import type { UUIDTypes } from "uuid";
 
 export const ordersService = {
