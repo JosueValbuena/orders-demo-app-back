@@ -24,7 +24,7 @@ export const ordersController = {
                 .json({
                     code: 200,
                     status: 'success',
-                    message: 'Ordsers request succefull',
+                    message: 'Orders request successfully',
                     page: page,
                     page_size: 10,
                     total_results: data.ordersCount,
@@ -76,7 +76,7 @@ export const ordersController = {
             return res.status(200).json({
                 code: 200,
                 status: 'success',
-                message: 'Orders request succefull',
+                message: 'Orders request successfully',
                 data: OrderDTO.response(order)
             });
         } catch (error) {
